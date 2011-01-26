@@ -16,8 +16,6 @@ class SchedulesController < ApplicationController
   before_filter :save_default, :only => [:default]
   before_filter :fill_entries, :only => [:fill]
 
-  audit User
-
   # Included helpers
   include SchedulesHelper
   include ValidatedFieldsHelper
@@ -862,7 +860,7 @@ class SchedulesController < ApplicationController
       if @focus == 'projects'
         do_users = false
       end
-      @entries = get_entries(do_projects, do_users)
+      @entries = get_entries #(do_projects, do_users)
       @availabilities = get_availabilities
 
       # Re-render the div
@@ -891,7 +889,7 @@ class SchedulesController < ApplicationController
       if @focus == 'projects'
         do_users = false
       end
-      @entries = get_entries(do_projects, do_users)
+      @entries = get_entries #(do_projects, do_users)
       @availabilities = get_availabilities
 
       # Re-render the div

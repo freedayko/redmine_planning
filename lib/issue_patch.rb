@@ -12,8 +12,6 @@ module IssuePlanningPatch
     base.class_eval do
       unloadable
       
-      acts_as_audited( :except => [ :lock_version, :updated_on, :created_on, :id , :lft, :rgt, :root_id] )
-        
       has_many :scheduled_issues
 
       before_validation :adjust_due_date
@@ -66,7 +64,7 @@ module IssuePlanningPatch
     def adjust_due_date
      
       last_scheduled = self.scheduled_issues.max { |a, b| a.date <=> b.date }
-      unless last_scheduled.nil? || self.due_date >= last_scheduled.date
+      unless last_scheduled.nil? || self.due_date.nil? || self.due_date >= last_scheduled.date
         self.due_date = last_scheduled.date
         a_journal = Journal.new(:journalized => self, :user => User.find_by_id(Setting.plugin_redmine_planning['user']), :notes => "Due date for issue changed by scheduling process. This indicates contention for a named resource across the issue planned period and may require manual resolution.")
         a_journal.save

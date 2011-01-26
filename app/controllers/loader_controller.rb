@@ -12,8 +12,6 @@ class LoaderController < ApplicationController
   @default_tracker_id = 0
   @default_category = "Project"
   
-  audit User
-  
   # Set up the import view. If there is no task data, this will consist of
   # a file entry field and nothing else. If there is parsed file data (a
   # preliminary task list), then this is included too.

@@ -12,7 +12,6 @@ require_dependency 'user_patch'
 require_dependency 'time_entries_patch'
 require_dependency 'lib_sections'
 require_dependency 'lib_report'
-require_dependency 'extend_acts_as_audited_model'
 require_dependency 'extend_numeric_class_with_precision_method'
 
 puts "Starting plugin redmine_planning"

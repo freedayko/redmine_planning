@@ -6,6 +6,6 @@ class ModifyTimeEntries < ActiveRecord::Migration
   end
 
   def self.down
-    drop_column :time_entries, :day_number
+    remove_column :time_entries, :day_number
   end
 end

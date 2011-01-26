@@ -16,8 +16,6 @@ class ScheduledIssue < ActiveRecord::Base
                             :author_key => :author_id,
                             :timestamp => :updated_at
   
-  acts_as_audited( :except => [ :lock_version, :updated_at, :created_at, :id ] )
-
 #  before_destroy :before_i_die
 
   def before_save

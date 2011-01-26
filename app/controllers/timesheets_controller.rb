@@ -7,10 +7,10 @@ class TimesheetsController < ApplicationController
   dynamic_actions = { :only => [ :edit, :update ] }
 
 #  uses_leightbox( dynamic_actions )
-  uses_yui_tree(
-    { :xhr_url_method => :trees_path  },
-    dynamic_actions
-  )
+#  uses_yui_tree(
+#    { :xhr_url_method => :trees_path  },
+#    dynamic_actions
+#  )
 
   # List timesheets.
 

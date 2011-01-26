@@ -4,8 +4,6 @@ class Timesheet < ActiveRecord::Base
 
   require 'will_paginate'
   
-  acts_as_audited( :except => [ :lock_version, :updated_at, :created_at, :id ] )
-
   DEFAULT_SORT_COLUMN    = 'year, week_number'
   DEFAULT_SORT_DIRECTION = 'DESC'
   DEFAULT_SORT_ORDER     = "#{ DEFAULT_SORT_COLUMN } #{ DEFAULT_SORT_DIRECTION }"
@@ -103,8 +101,6 @@ class Timesheet < ActiveRecord::Base
   end
 
   # Restrict the fields audited by the Acts As Audited plug-in.
-
-  acts_as_audited( :except => [ :committed_at ] )
 
   # Create Timesheet Row objects after saving, if not already
   # present. This must be done after because the ID of this
